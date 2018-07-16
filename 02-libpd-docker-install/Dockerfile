@@ -1,8 +1,8 @@
-FROM alpine
+FROM arm32v6/alpine
 RUN apk add build-base git jack-dev alsa-lib-dev
-RUN cd /home && git clone https://github.com/libpd/libpd
-RUN cd /home/libpd && git submodule init && git submodule update
-RUN cd /home/libpd && make && make install
-RUN cd /home/libpd/samples/cpp/pdtest_rtaudio && make  
+RUN cd /root && git clone https://github.com/libpd/libpd
+RUN cd /root/libpd && git submodule init && git submodule update
+RUN cd /root/libpd && make && make install
+RUN cd /root/libpd/samples/cpp/pdtest_rtaudio && make  
 
-CMD /home/libpd/samples/cpp/pdtest_rtaudio
+
